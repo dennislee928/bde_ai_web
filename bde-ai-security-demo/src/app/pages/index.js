@@ -139,9 +139,10 @@ export default function CyberDefault() {
               UNIVERSE
             </h1>
             <p className="mb-8">
-              Explore CyberDefault — a cutting edge solution for digital design
-              challenges, seamlessly integrating unique NFT artworks with
-              cybersecurity-inspired design.
+              Explore CyberDefault — a cutting edge solution for digital
+              security challenges, seamlessly integrating main stream LLM Models
+              with cybersecurity-inspired cloudflare architecture design, only
+              issued by Twister5.com.tw.
             </p>
             <Button
               onClick={() => analyzeLogs("marketing")}
@@ -159,6 +160,15 @@ export default function CyberDefault() {
             >
               {isLoading ? "ANALYZING..." : "[ 啟動 ollama S1.2 34S 資安分析 ]"}
             </Button>
+            <br />
+            <br />
+            <Button
+              onClick={() => analyzeLogs("attack")}
+              disabled={buttonStates.attack.disabled}
+              className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline disabled:opacity-50"
+            >
+              {isLoading ? "ANALYZING..." : "[ 其他情境 ]"}
+            </Button>
           </div>
           <div className="relative">
             <img
@@ -166,7 +176,7 @@ export default function CyberDefault() {
               alt="Cyber VR Headset"
               className="w-full h-auto object-cover"
               style={{
-                transform: "scale(2) translateY(60px) translateX(-50px)",
+                transform: "scale(2) translateY(90px) translateX(-50px)",
                 zIndex: 0,
                 position: "relative",
                 clipPath: "inset(0 0 0 150px)",
@@ -223,10 +233,22 @@ export default function CyberDefault() {
           >
             {isLoading ? "ANALYZING..." : "[ 啟動 ollama S1.2 34S 資安分析 ]"}
           </Button>
+          <br />
+          <br />
+          <Button
+            onClick={() => analyzeLogs("attack")}
+            disabled={buttonStates.attack.disabled}
+            className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline disabled:opacity-50"
+          >
+            {isLoading ? "ANALYZING..." : "[ 其他情境 ]"}
+          </Button>
         </div>
       </div>
       <footer className="border-t border-green-500 py-4 mt-8 text-center text-green-400">
-        <p>© 2025 CYBERDEFAULT. ALL RIGHTS RESERVED.</p>
+        <p>
+          © 2025 Twister5.com.tw. ALL RIGHTS RESERVED. contact:
+          pcleegood@gmail.com / dennis.lee@twister5.com.tw
+        </p>
       </footer>
     </div>
   );
