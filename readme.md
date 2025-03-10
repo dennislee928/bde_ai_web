@@ -1,4 +1,6 @@
-api-server/
+## project folder:bde-ai-security-demo
+
+src/app:
 ├── pages/ # Next.js 頁面 (路由)
 │ ├── api/ # Next.js API 路由
 │ │ └── analyze-logs.js # 處理日誌分析的 API 路由
