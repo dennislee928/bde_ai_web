@@ -1,5 +1,6 @@
 ## project folder:bde-ai-security-demo
 
+```plaintext
 src/app:
 ├── pages/ # Next.js 頁面 (路由)
 │ ├── api/ # Next.js API 路由
@@ -15,6 +16,7 @@ src/app:
 ├── package.json
 ├── package-lock.json
 └── next.config.js # Next.js 設定檔 (如果需要)
+```
 
 # demo:
 
@@ -28,3 +30,18 @@ src/app:
   實作。
 
 - 2.於 bde-ai-security-demo/src/app/pages/index.js 的 button 中，加上觸發 event 即可加上新的 fetch(對 analyze-logs.js 定義的端點做 fetch)
+
+# tech-stack：
+
+- **前端:**
+  - React
+  - Next.js
+  - Tailwind CSS
+- **後端:**
+  - Node.js
+  - ＊Express (可用於 API 路由，雖然 Next.js 提供了 API 路由功能)
+  - Axios (用於 HTTP 請求)
+  - CORS (用於跨域請求)
+- **其他:**
+  - npm (或 yarn)
+  - LLM (Llama3.2:1b) - 透過 API 呼叫
