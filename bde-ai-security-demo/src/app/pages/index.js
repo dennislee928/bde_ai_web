@@ -100,54 +100,95 @@ export default function Index() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <header>
-        <div className="nav-bar">
-          <div className="logo">AI 問題服務</div>
-          <div className="menu">
-            <a href="#">首頁</a>
-            <a href="#">關於我們</a>
-            <a href="#">服務</a>
-            <a href="#">聯絡我們</a>
-          </div>
-          <div className="auth-buttons">
-            <a href="#">登入</a>
-            <a href="#">註冊</a>
+      <header className="bg-green-500 py-4 shadow-md">
+        <div className="container mx-auto px-4 flex items-center justify-between">
+          <div className="text-white text-2xl font-bold">AI 問題服務</div>
+          <nav>
+            <ul className="flex space-x-6">
+              <li>
+                <a href="#" className="text-white hover:text-gray-200">
+                  首頁
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-white hover:text-gray-200">
+                  關於我們
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-white hover:text-gray-200">
+                  服務
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-white hover:text-gray-200">
+                  聯絡我們
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <div className="auth-buttons space-x-4">
+            <a
+              href="#"
+              className="bg-white text-green-500 px-4 py-2 rounded hover:bg-gray-100"
+            >
+              登入
+            </a>
+            <a
+              href="#"
+              className="bg-white text-green-500 px-4 py-2 rounded hover:bg-gray-100"
+            >
+              註冊
+            </a>
           </div>
         </div>
-        <h1>AI 問題服務</h1>
-        <p>請點選按鈕以查看分析資訊。</p>
       </header>
 
-      <div className="container">
-        <div className="left-column">
-          <h2>AI 回覆</h2>
-          <MessageBoard messages={messages} />
-        </div>
+      <main className="container mx-auto px-4 py-8">
+        <h1 className="text-3xl font-bold text-gray-800 text-center mb-6">
+          AI 問題服務
+        </h1>
+        <p className="text-gray-700 text-center mb-8">
+          請點選按鈕以查看分析資訊。
+        </p>
 
-        <div className="right-column">
-          <h2>事件分析</h2>
-          <div className="button-section">
-            <button
-              onClick={() => analyzeLogs("attack")}
-              disabled={buttonStates.attack.disabled}
-            >
-              {buttonStates.attack.loading
-                ? "載入中..."
-                : buttonStates.attack.originalText}
-            </button>
-            <button
-              onClick={() => analyzeLogs("marketing")}
-              disabled={buttonStates.marketing.disabled}
-            >
-              {buttonStates.marketing.loading
-                ? "載入中..."
-                : buttonStates.marketing.originalText}
-            </button>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="bg-white shadow-md rounded-lg p-6">
+            <h2 className="text-xl font-semibold text-gray-800 mb-4">
+              AI 回覆
+            </h2>
+            <MessageBoard messages={messages} />
+          </div>
+
+          <div className="bg-white shadow-md rounded-lg p-6">
+            <h2 className="text-xl font-semibold text-gray-800 mb-4">
+              事件分析
+            </h2>
+            <div className="button-section flex flex-col space-y-4">
+              <button
+                onClick={() => analyzeLogs("attack")}
+                disabled={buttonStates.attack.disabled}
+                className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline disabled:opacity-50"
+              >
+                {buttonStates.attack.loading
+                  ? "載入中..."
+                  : buttonStates.attack.originalText}
+              </button>
+              <button
+                onClick={() => analyzeLogs("marketing")}
+                disabled={buttonStates.marketing.disabled}
+                className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline disabled:opacity-50"
+              >
+                {buttonStates.marketing.loading
+                  ? "載入中..."
+                  : buttonStates.marketing.originalText}
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+      </main>
 
-      <footer>
+      <footer className="bg-gray-100 py-4 mt-8 text-center text-gray-600">
         <p>&copy; 2025 AI 問題服務。版權所有。</p>
       </footer>
     </>
