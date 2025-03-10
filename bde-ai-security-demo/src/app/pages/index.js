@@ -101,47 +101,45 @@ export default function Index() {
       </Head>
 
       <header className="bg-green-600 py-4 shadow-md w-full">
-        <div>
-          <div className="container mx-auto px-4 flex items-center justify-between ">
-            <div className="text-black text-2xl font-bold">AI 問題服務</div>
-            <nav>
-              <ul className="flex space-x-6">
-                <li>
-                  <a href="#" className="text-black hover:text-gray-200">
-                    首頁
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-black hover:text-gray-200">
-                    關於我們
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-black hover:text-gray-200">
-                    服務
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="text-black hover:text-gray-200">
-                    聯絡我們
-                  </a>
-                </li>
-              </ul>
-            </nav>
-            <div className="auth-buttons space-x-4">
-              <a
-                href="#"
-                className="bg-white text-green-500 px-4 py-2 rounded hover:bg-gray-100"
-              >
-                登入
-              </a>
-              <a
-                href="#"
-                className="bg-white text-green-500 px-4 py-2 rounded hover:bg-gray-100"
-              >
-                註冊
-              </a>
-            </div>
+        <div className="container mx-auto px-4 flex items-center justify-between m-5">
+          <div className="text-black text-2xl font-bold">AI 問題服務</div>
+          <nav>
+            <ul className="flex space-x-6">
+              <li>
+                <a href="#" className="text-black hover:text-gray-200">
+                  首頁
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-black hover:text-gray-200">
+                  關於我們
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-black hover:text-gray-200">
+                  服務
+                </a>
+              </li>
+              <li>
+                <a href="#" className="text-black hover:text-gray-200">
+                  聯絡我們
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <div className="auth-buttons space-x-4">
+            <a
+              href="#"
+              className="bg-white text-green-500 px-4 py-2 rounded hover:bg-gray-100"
+            >
+              登入
+            </a>
+            <a
+              href="#"
+              className="bg-white text-green-500 px-4 py-2 rounded hover:bg-gray-100"
+            >
+              註冊
+            </a>
           </div>
         </div>
       </header>
