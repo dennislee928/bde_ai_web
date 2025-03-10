@@ -1,9 +1,12 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+"use client";
+
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import MessageBoard from "../components/MessageBoard";
-import styles from "../styles/globals.css"; // 導入全域樣式
+import "../globals.css"; // 確保路徑正確
 
-export default function Home() {
+export default function Index() {
   const [messages, setMessages] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [buttonStates, setButtonStates] = useState({
