@@ -100,66 +100,71 @@ export default function Index() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <header className="bg-green-500 py-4 shadow-md">
-        <div className="container mx-auto px-4 flex items-center justify-between">
-          <div className="text-white text-2xl font-bold">AI 問題服務</div>
-          <nav>
-            <ul className="flex space-x-6">
-              <li>
-                <a href="#" className="text-white hover:text-gray-200">
-                  首頁
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-white hover:text-gray-200">
-                  關於我們
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-white hover:text-gray-200">
-                  服務
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-white hover:text-gray-200">
-                  聯絡我們
-                </a>
-              </li>
-            </ul>
-          </nav>
-          <div className="auth-buttons space-x-4">
-            <a
-              href="#"
-              className="bg-white text-green-500 px-4 py-2 rounded hover:bg-gray-100"
-            >
-              登入
-            </a>
-            <a
-              href="#"
-              className="bg-white text-green-500 px-4 py-2 rounded hover:bg-gray-100"
-            >
-              註冊
-            </a>
+      <header className="bg-green-600 py-4 shadow-md w-full">
+        <div>
+          <div className="container mx-auto px-4 flex items-center justify-between ">
+            <div className="text-black text-2xl font-bold">AI 問題服務</div>
+            <nav>
+              <ul className="flex space-x-6">
+                <li>
+                  <a href="#" className="text-black hover:text-gray-200">
+                    首頁
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="text-black hover:text-gray-200">
+                    關於我們
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="text-black hover:text-gray-200">
+                    服務
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="text-black hover:text-gray-200">
+                    聯絡我們
+                  </a>
+                </li>
+              </ul>
+            </nav>
+            <div className="auth-buttons space-x-4">
+              <a
+                href="#"
+                className="bg-white text-green-500 px-4 py-2 rounded hover:bg-gray-100"
+              >
+                登入
+              </a>
+              <a
+                href="#"
+                className="bg-white text-green-500 px-4 py-2 rounded hover:bg-gray-100"
+              >
+                註冊
+              </a>
+            </div>
           </div>
         </div>
       </header>
 
       <main className="container mx-auto px-4 py-8">
-        <h1 className="text-3xl font-bold text-gray-800 text-center mb-6">
-          AI 問題服務
-        </h1>
-        <p className="text-gray-700 text-center mb-8">
-          請點選按鈕以查看分析資訊。
-        </p>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="bg-white shadow-md rounded-lg p-6">
+          <h1 className="text-3xl font-bold text-gray-800 text-center mb-6">
+            AI 問題服務:
+          </h1>
+          <p className="text-gray-700 text-center mb-8">
+            請點選按鈕以查看分析資訊。
+          </p>
           <div className="bg-white shadow-md rounded-lg p-6">
             <h2 className="text-xl font-semibold text-gray-800 mb-4">
               AI 回覆
             </h2>
             <MessageBoard messages={messages} />
           </div>
+        </div>
 
+        <br />
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="bg-white shadow-md rounded-lg p-6">
             <h2 className="text-xl font-semibold text-gray-800 mb-4">
               事件分析
