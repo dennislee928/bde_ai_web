@@ -24,3 +24,146 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* 全域樣式 */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f9;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+header {
+  background-color: #4caf50;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  width: 100%;
+}
+
+header .nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  background-color: #3e8e41;
+}
+
+header .nav-bar .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+header .nav-bar .menu {
+  display: flex;
+  gap: 20px;
+}
+
+header .nav-bar .menu a {
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+  padding: 5px 10px;
+}
+
+header .nav-bar .menu a:hover {
+  background-color: #45a049;
+  border-radius: 5px;
+}
+
+header .nav-bar .auth-buttons a {
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+  padding: 5px 15px;
+  background-color: #555;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+
+header .nav-bar .auth-buttons a:hover {
+  background-color: #333;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 20px;
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+.left-column,
+.right-column {
+  padding: 20px;
+  width: 50%;
+}
+
+h1 {
+  color: #333;
+}
+
+.button-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+button {
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+  position: relative;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+footer {
+  text-align: center;
+  margin-top: 30px;
+  padding: 10px;
+  background-color: #f1f1f1;
+}
+
+/* 留言板樣式 */
+.message-board {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  height: 300px;
+  overflow-y: scroll;
+  margin-bottom: 20px;
+}
+
+.message-board .message {
+  margin-bottom: 10px;
+  padding: 8px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+}
+
+.message-board .message p {
+  margin: 0;
+}
+
+.message-board .message .author {
+  font-weight: bold;
+}
