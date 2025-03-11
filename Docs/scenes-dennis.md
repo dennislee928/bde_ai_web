@@ -80,11 +80,11 @@
 
   ```mermaid
   graph LR
-      A[即時流量數據代理與收集 (Workers)] --> B{邊緣端數據預處理};
-      B --> C[AI 驅動異常檢測與控制];
-      C --> D{自動啟動速率限制或快取策略 (若異常)};
-      C --> E[Chat LLM 預測與優化建議];
-      E --> F[優化措施 (調整速率限制閾值或增強快取規則)];
+    A[Collect real-time traffic via AI Gateway with Workers] --> B[Edge preprocessing];
+    B --> C[AI-driven anomaly detection and control];
+    C --> D[Apply rate limiting or caching if anomaly detected];
+    C --> E[Chat LLM prediction and optimization];
+    E --> F[Optimize: adjust rate limits or enhance caching];
   ```
 
 ---
