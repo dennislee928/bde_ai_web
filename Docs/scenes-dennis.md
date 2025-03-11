@@ -29,11 +29,11 @@
 
   ```mermaid
   graph LR
-      A[API 請求監控] --> B{數據收集與預處理 (Workers)};
-      B --> C[異常行為檢測 (AI 模型)];
-      C --> D{觸發警報 (若異常)};
-      C --> E[調用 Chat LLM 分析];
-      E --> F[提供安全建議，優化 API 安全配置];
+    A[Monitor API requests] --> B[Data collection and preprocessing with Workers];
+    B --> C[Anomaly detection with AI model];
+    C --> D[Trigger alert if anomaly detected];
+    C --> E[Invoke Chat LLM for analysis];
+    E --> F[Provide security advice and optimize API config];
   ```
 
 ---
