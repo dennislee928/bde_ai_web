@@ -62,12 +62,12 @@
 - **流程：**
 
   ```mermaid
-  graph LR
-      A[即時 CDN 流量數據收集 (Workers)] --> B{邊緣端數據預處理};
-      B --> C[AI 驅動流量異常檢測];
-      C --> D{自動調整快取策略或啟動緩解措施 (若異常)};
-      C --> E[Chat LLM 預測與建議];
-      E --> F[優化 CDN 配置 (增加快取時間或調整邊緣規則)];
+ graph LR
+    A[Collect real-time CDN traffic with Workers] --> B[Edge preprocessing];
+    B --> C[AI-driven traffic anomaly detection];
+    C --> D[Adjust cache or mitigate if anomaly detected];
+    C --> E[Chat LLM prediction and suggestions];
+    E --> F[Optimize CDN config: increase cache time or adjust rules];
   ```
 
 ---
