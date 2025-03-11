@@ -96,10 +96,10 @@
 - **流程：**
 
   ```mermaid
-  graph LR
-      A[安全事件數據提取 (Security Insights)] --> B{使用 Workers 整合日誌};
-      B --> C[AI 事件分類與風險評估];
-      C --> D[自動標記高風險事件];
-      C --> E[Chat LLM 解析與安全建議];
-      E --> F[優化防火牆規則或 AI Gateway 的安全配置];
+ graph LR
+    A[Extract security events from Security Insights] --> B[Integrate logs with Workers];
+    B --> C[AI event classification and risk assessment];
+    C --> D[Tag high-risk events];
+    C --> E[Chat LLM parsing and security suggestions];
+    E --> F[Optimize firewall rules or AI Gateway config];
   ```
