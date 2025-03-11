@@ -1,0 +1,54 @@
+1. Web 防火牆 (WAF) 攻擊記錄
+    timestamp：攻擊發生的時間（ISO 8601 格式）。
+    source_ip：攻擊來源 IP（可能為代理伺服器）。
+    destination_ip：網站伺服器的 IP。
+    request_url：攻擊目標的網址（可能是 /login、/admin）。
+    http_method：HTTP 請求方式（如 GET、POST）。
+    status_code：HTTP 回應碼，403 代表請求被阻擋。
+    attack_type：攻擊類型，例如 SQL Injection、XSS、LFI。
+    rule_id：觸發的 WAF 防護規則 ID。
+    user_agent：攻擊者的瀏覽器資訊（可能是自動化工具）。
+    country：來源 IP 對應的國家。
+    blocked：是否成功攔截攻擊（true/false）。
+
+2. DDoS 攻擊流量監控
+    timestamp：DDoS 攻擊發生的時間。
+    source_ip：發動攻擊的 IP（可能是殭屍網路）。
+    attack_vector：攻擊手法，如 UDP Flood、SYN Flood、ICMP Flood。
+    destination_ip：被攻擊的網站伺服器 IP。
+    destination_port：攻擊的目標端口（如 80、443）。
+    packet_count：攻擊期間發送的封包數。
+    traffic_volume_mb：攻擊流量大小（MB）。
+    duration_seconds：攻擊持續時間（秒）。
+    mitigation：採取的緩解措施（如 Rate Limiting、黑名單）。
+    blocked：攻擊是否成功被阻擋。
+
+3. 惡意登入嘗試 (Brute Force Attack)
+    timestamp：嘗試登入的時間。
+    source_ip：發動暴力破解的 IP。
+    username_attempted：嘗試登入的帳號（通常是 admin）。
+    failed_attempts：連續登入失敗的次數。
+    login_url：嘗試登入的 URL。
+    user_agent：請求來源的工具，可能是 curl 或自動化腳本。
+    country：來源 IP 所在的國家。
+    blocked：是否因登入失敗過多而被封鎖。
+
+4. 惡意程式上傳 (Malicious File Upload)
+    timestamp：惡意檔案上傳的時間。
+    source_ip：上傳者的 IP。
+    upload_url：上傳的目標網址。
+    file_name：上傳的檔案名稱（如 shell.php）。
+    file_size_kb：檔案大小（KB）。
+    content_type：檔案 MIME 類型（如 application/x-php）。
+    md5_hash：檔案的 MD5 雜湊值，可用來比對是否為已知惡意程式。
+    blocked：檔案是否被阻擋。
+
+5. 內部系統異常 (Possible Compromise)
+    timestamp：異常行為發生的時間。
+    server_ip：受影響的伺服器 IP。
+    process_name：執行的可疑進程（如 bash）。
+    command_executed：執行的命令（可能是下載惡意程式）。
+    user：執行該命令的使用者（如 www-data）。
+    pid：進程 ID。
+    alert_level：警報等級（low / medium / high）。
+    action_taken：採取的應對措施（如 process_killed、user_blocked）。

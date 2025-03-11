@@ -1,0 +1,17 @@
+{
+    "website_clicks":[
+        {"date":"2024-03-05","user_id":"U12345","page_url":"/home","clicks":3,"referrer":"Google Ads","device":"Mobile","location":"Taiwan"},
+        {"date":"2024-03-05","user_id":"U67890","page_url":"/product/abc","clicks":5,"referrer":"Facebook","device":"Desktop","location":"USA"},
+        {"date":"2024-03-06","user_id":"U34567","page_url":"/contact","clicks":2,"referrer":"Organic Search","device":"Tablet","location":"Japan"}
+    ],
+    "product_clicks":[
+        {"date":"2024-03-05","user_id":"U12345","product_id":"P1001","product_name":"iPhone 15","clicks":4,"referrer":"Google Ads","conversion":true},
+        {"date":"2024-03-05","user_id":"U67890","product_id":"P2002","product_name":"Nike Shoes","clicks":7,"referrer":"Facebook","conversion":false},
+        {"date":"2024-03-06","user_id":"U34567","product_id":"P3003","product_name":"Samsung TV","clicks":2,"referrer":"Organic Search","conversion":true}
+    ],
+    "ad_clicks":[
+        {"date":"2024-03-05","campaign":"春季促銷","ad_id":"AD001","clicks":1500,"conversions":120,"conversion_rate":8},
+        {"date":"2024-03-05","campaign":"限時折扣","ad_id":"AD002","clicks":2000,"conversions":300,"conversion_rate":15},
+        {"date":"2024-03-06","campaign":"黑色星期五","ad_id":"AD003","clicks":5000,"conversions":1000,"conversion_rate":20}
+    ]
+}

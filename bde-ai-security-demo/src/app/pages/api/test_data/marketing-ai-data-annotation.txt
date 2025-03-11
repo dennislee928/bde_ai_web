@@ -1,0 +1,30 @@
+1. 網站點擊率 (Website Clicks)
+    日期 (Date)：訪問的日期時間
+    訪客 ID (User ID)：用戶識別碼 (匿名或登入用戶)
+    頁面 (Page URL)：用戶造訪的網頁
+    點擊次數 (Clicks)：在該頁面上的點擊次數
+    來源 (Referrer)：用戶是從哪裡來的 (Google, Facebook, 直接輸入網址等)
+    裝置 (Device)：用戶使用的設備 (手機、桌機、平板)
+    地理位置 (Location)：用戶的大致位置 (國家/城市)
+
+2. 商品點擊率 (Product Clicks)
+    日期 (Date)：商品被點擊的時間
+    用戶 ID (User ID)：用戶的識別碼
+    商品 ID (Product ID)：商品的唯一識別碼
+    商品名稱 (Product Name)：商品名稱
+    點擊次數 (Clicks)：該商品被點擊的次數
+    來源 (Referrer)：用戶點擊商品的來源 (Google, Facebook, 直接進入等)
+    轉換 (Conversion)：用戶是否最終購買該商品 (是/否)
+
+3. 廣告點擊轉換率 (Ad Clicks & Conversion Rate)
+    日期 (Date)：廣告活動的日期
+    廣告活動 (Campaign)：廣告所屬的行銷活動名稱
+    廣告 ID (Ad ID)：該廣告的唯一識別碼
+    點擊次數 (Clicks)：該廣告的點擊次數
+    轉換次數 (Conversions)：點擊後有成功轉換 (購買、註冊等) 的次數
+    轉換率 (Conversion Rate)：轉換次數 ÷ 點擊次數 × 100%
+
+✅ 分析哪個流量來源轉換率最高
+✅ 找出哪些商品最受歡迎
+✅ 評估廣告 ROI (投資報酬率)
+✅ 優化行銷策略，提高點擊率與轉換率
