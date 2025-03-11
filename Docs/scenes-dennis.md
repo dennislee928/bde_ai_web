@@ -12,11 +12,11 @@
 
   ```mermaid
   graph LR
-      A[從 Radar 獲取即時流量數據] --> B{邊緣端數據預處理 (Workers)};
-      B --> C[AI 驅動異常檢測];
-      C --> D{觸發警報 (若異常)};
-      C --> E[調用 Chat LLM 解析流量數據];
-      E --> F[提供安全建議，預測並防範 DDoS 攻擊];
+    A[Get real-time traffic from Radar] --> B[Edge preprocessing with Workers];
+    B --> C[AI-driven anomaly detection];
+    C --> D[Trigger alert if anomaly detected];
+    C --> E[Invoke Chat LLM to analyze traffic];
+    E --> F[Provide security advice and predict DDoS attacks];
   ```
 
 ---
