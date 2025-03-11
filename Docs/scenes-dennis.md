@@ -46,11 +46,11 @@
 
   ```mermaid
   graph LR
-      A[自動生成 WAF 報告] --> B{透過 Cloudflare GraphQL API 擷取 WAF 日誌 (Workers)};
-      B --> C[AI 事件分類 (誤判 vs. 實際攻擊)];
-      C --> D[標記潛在威脅];
-      C --> E[LLM 解析與建議];
-      E --> F[提供安全建議，改良防火牆規則，自動發現錯誤設置];
+    A[Generate WAF report automatically] --> B[Fetch WAF logs via GraphQL API with Workers];
+    B --> C[AI event classification: false vs real attacks];
+    C --> D[Tag potential threats];
+    C --> E[LLM parsing and suggestions];
+    E --> F[Provide security advice and improve firewall rules];
   ```
 
 ---
