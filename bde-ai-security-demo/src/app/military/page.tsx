@@ -4,11 +4,16 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { Button } from "./components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "./components/ui/card";
-import MessageBoard from "./components/MessageBoard";
-import VisualizationComponent from "./components/ui/chart/VisualizationComponent.js";
-import Navbar from "./components/ui/navbar";
+import { Button } from "../components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "../components/ui/card";
+import MessageBoard from "../components/MessageBoard";
+import VisualizationComponent from "../components/ui/chart/VisualizationComponent.js";
+import Navbar from "../components/ui/navbar";
 // Define the message type
 interface Message {
   author: string;
@@ -147,7 +152,7 @@ export default function Home() {
     showMessage("原始資料", "載入中...");
 
     try {
-      const response = await fetch("/api/get-twister5-si-data", {
+      const response = await fetch("/api/get-mnd-si-data", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -156,11 +161,11 @@ export default function Home() {
 
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(errorData.message || "獲取資料失敗");
+        throw new Error(errorData.message || "獲取mnd資料失敗");
       }
 
       const data: ApiResponse = await response.json(); // 使用 ApiResponse 介面
-      console.log("Received data from /api/get-twister5-si-data:", data);
+      console.log("Received data from /api/get-mnd-si-data:", data);
 
       // 假設 data 包含 requests 屬性
       if (data && data.requests && Array.isArray(data.requests)) {
@@ -273,6 +278,7 @@ export default function Home() {
           </CardHeader>
           <CardContent>
             <CardContent>
+              <h2>軍醫局 cloudflare 資料表</h2>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm text-left text-green-400">
                   <thead className="text-xs uppercase bg-green-900/20">

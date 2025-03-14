@@ -4,11 +4,19 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { Button } from "./components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "./components/ui/card";
-import MessageBoard from "./components/MessageBoard";
-import VisualizationComponent from "./components/ui/chart/VisualizationComponent.js";
-import Navbar from "./components/ui/navbar";
+import { Button } from "../components/ui/button";
+
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "../components/ui/card";
+import MessageBoard from "../components/MessageBoard";
+import Navbar from "../components/ui/navbar";
+//
+
+//fetch_twse_SecurityLogs
 // Define the message type
 interface Message {
   author: string;
@@ -142,12 +150,12 @@ export default function Home() {
     }
   }; //
   // 使用 useCallback 改善 get_twister5_data 函數
-  const get_twister5_data = useCallback(async () => {
+  const get_twse_data = useCallback(async () => {
     setIsLoading(true);
     showMessage("原始資料", "載入中...");
 
     try {
-      const response = await fetch("/api/get-twister5-si-data", {
+      const response = await fetch("/api/get-twse-si-data", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -167,6 +175,62 @@ export default function Home() {
         setSecurityLogs(data.requests); // 將資料儲存在 securityLogs 狀態中
         showMessage("原始資料", "載入成功");
       } else {
+        // 處理 data 或 data.requests 為 null 或 undefined 的情況
+        setSecurityLogs([]); // 清空 securityLogs
+        showMessage("錯誤", "獲取資安日誌失敗或資料格式不正確");
+      }
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        showMessage("錯誤", `無法連接到raw data: ${error.message}`);
+      } else {
+        showMessage("錯誤", "發生未知錯誤");
+      }
+    } finally {
+      setIsLoading(false);
+      setButtonStates((prevState) => ({
+        ...prevState,
+        attack: {
+          ...prevState.attack,
+          loading: false,
+          disabled: false,
+        },
+        marketing: {
+          ...prevState.marketing,
+          loading: false,
+          disabled: false,
+        },
+      }));
+    }
+  }, []); // 空的依賴陣列表示 get_twister5_data 函數不依賴任何外部變數
+  //emega
+  // 使用 useCallback 改善 get_twister5_data 函數
+  const get_emega_data = useCallback(async () => {
+    setIsLoading(true);
+    showMessage("原始資料", "載入中...");
+
+    try {
+      const response = await fetch("/api/get-emega-si-data", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message || "獲取資料失敗");
+      }
+
+      const data: ApiResponse = await response.json(); // 使用 ApiResponse 介面
+      console.log("Received data from /api/get-twister5-si-data:", data);
+
+      // 假設 data 包含 requests 屬性
+      if (data && data.requests && Array.isArray(data.requests)) {
+        setSecurityLogs(data.requests); // 將資料儲存在 securityLogs 狀態中
+        showMessage("原始資料", "載入成功");
+      } else {
+        // 處理 data 或 data.requests 為 null 或 undefined 的情況
+        setSecurityLogs([]); // 清空 securityLogs
         showMessage("錯誤", "獲取資安日誌失敗或資料格式不正確");
       }
     } catch (error: unknown) {
@@ -193,8 +257,9 @@ export default function Home() {
     }
   }, []); // 空的依賴陣列表示 get_twister5_data 函數不依賴任何外部變數
 
+  //
   useEffect(() => {
-    get_twister5_data();
+    get_twse_data();
   }, []);
   //
 
@@ -202,10 +267,13 @@ export default function Home() {
     <div className="min-h-screen bg-black text-green-400 font-mono">
       <header className="border-b border-green-500 py-4">
         <div className="container mx-auto px-4 flex items-center justify-between">
-          <div className="text-2xl text-black font-bold">Twister5-BDE.AI</div>
+          <div className="text-2xl text-black font-bold">
+            Twister5-BDE.AI:finance and commerical
+          </div>
         </div>
       </header>
       <Navbar />
+
       <main className="container mx-auto px-4 py-8">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div>
@@ -226,35 +294,44 @@ export default function Home() {
               with cybersecurity-inspired cloudflare architecture design, only
               issued by Twister5.com.tw.
             </p>
-          </div>
-          <Button
-            onClick={() => analyzeLogs("attack")}
-            disabled={buttonStates.marketing.disabled}
-            className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline disabled:opacity-50"
-          >
-            {buttonStates.marketing.loading
-              ? "ANALYZING..."
-              : "[ attack-Demo-test:啟動 ollama S1.2 34S 分析 ]"}
-          </Button>
-          <br />
-          <br />
-          <Button
-            onClick={() => get_twister5_data()}
-            disabled={buttonStates.attack.disabled}
-            className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline disabled:opacity-50"
-          >
-            {isLoading ? "ANALYZING..." : "[ raw data fetch ]"}
-          </Button>
-          <br />
-          <br />
-          <Button
-            onClick={() => analyzeLogs("attack")}
-            disabled={buttonStates.attack.disabled}
-            className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline disabled:opacity-50"
-          >
-            {buttonStates.attack.loading ? "ANALYZING..." : "[ 其他情境 ]"}
-          </Button>
 
+            <Button
+              // onClick={() => analyzeLogs("attack")}
+              disabled={buttonStates.marketing.disabled}
+              className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline disabled:opacity-50"
+            >
+              {buttonStates.marketing.loading
+                ? "ANALYZING..."
+                : "[ attack-Demo-test:啟動 ollama S1.2 34S 分析 ]"}
+            </Button>
+            <br />
+            <br />
+            <Button
+              onClick={() => get_twse_data()}
+              disabled={buttonStates.attack.disabled}
+              className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline disabled:opacity-50"
+            >
+              {isLoading ? "ANALYZING..." : "[ twse raw data fetch ]"}
+            </Button>
+            <br />
+            <br />
+            <Button
+              onClick={() => get_emega_data()}
+              disabled={buttonStates.attack.disabled}
+              className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline disabled:opacity-50"
+            >
+              {isLoading ? "ANALYZING..." : "[ emega raw data fetch ]"}
+            </Button>
+            <br />
+            <br />
+            <Button
+              //  onClick={() => analyzeLogs("attack")}
+              disabled={buttonStates.attack.disabled}
+              className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline disabled:opacity-50"
+            >
+              {buttonStates.attack.loading ? "ANALYZING..." : "[ 其他情境 ]"}
+            </Button>
+          </div>
           <div className="relative">
             <img
               src="/assets/images/cp-1.jpg"
@@ -273,6 +350,7 @@ export default function Home() {
           </CardHeader>
           <CardContent>
             <CardContent>
+              <h2>證交所 cloudflare 資料表</h2>
               <div className="overflow-x-auto">
                 <table className="w-full text-sm text-left text-green-400">
                   <thead className="text-xs uppercase bg-green-900/20">
@@ -352,7 +430,6 @@ export default function Home() {
           </Button>
         </div>
       </div>
-
       <footer className="border-t border-green-500 py-4 mt-8 text-center text-green-400">
         <p>
           © 2025 Twister5.com.tw. ALL RIGHTS RESERVED. contact:

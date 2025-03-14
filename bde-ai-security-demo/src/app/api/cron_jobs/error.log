@@ -1,0 +1,18 @@
+[2025-03-11T03:41:52.774Z] Error: fetchAISuggestions is not defined
+ReferenceError: fetchAISuggestions is not defined
+    at fetchSecurityLogs (/Users/lipeichen/Documents/twister5.com.tw/bde_ai_web_cron/cron_jobs/waf-ips.js:80:27)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2025-03-11T03:42:04.324Z] Error: fetchAISuggestions is not defined
+ReferenceError: fetchAISuggestions is not defined
+    at fetchSecurityLogs (/Users/lipeichen/Documents/twister5.com.tw/bde_ai_web_cron/cron_jobs/waf-ips.js:80:27)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2025-03-12T05:14:38.597Z] Error: CF_AUTH_MAIL is not defined
+ReferenceError: CF_AUTH_MAIL is not defined
+    at fetch_Second_SecurityLogs (/Users/lipeichen/Documents/twister5.com.tw/bde_ai_web_cron/cron_jobs/waf-new-parameters.js:62:27)
+    at Object.<anonymous> (/Users/lipeichen/Documents/twister5.com.tw/bde_ai_web_cron/cron_jobs/waf-new-parameters.js:122:1)
+    at Module._compile (node:internal/modules/cjs/loader:1364:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1422:10)
+    at Module.load (node:internal/modules/cjs/loader:1203:32)
+    at Module._load (node:internal/modules/cjs/loader:1019:12)
+    at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:128:12)
+    at node:internal/main/run_main_module:28:49

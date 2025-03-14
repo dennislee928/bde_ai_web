@@ -1,0 +1,33 @@
+import { NextResponse } from "next/server";
+import * as fs from "fs";
+import * as path from "path";
+
+export async function GET() {
+  try {
+    const directoryPath = path.join(
+      process.cwd(),
+      "src/app/api/get-twister5-si-data/waf_second_parameter"
+    );
+    let files = fs.readdirSync(directoryPath);
+
+    files = files.filter((file: string) => file.endsWith(".json"));
+
+    files.sort((a: string, b: string) => {
+      const filePathA = path.join(directoryPath, a);
+      const filePathB = path.join(directoryPath, b);
+      const statA = fs.statSync(filePathA);
+      const statB = fs.statSync(filePathB);
+      return statB.mtimeMs - statA.mtimeMs;
+    });
+
+    const latestFile = files[0];
+    const filePath = path.join(directoryPath, latestFile);
+    const rawData = fs.readFileSync(filePath, "utf8");
+    const data = JSON.parse(rawData);
+
+    return NextResponse.json(data);
+  } catch (error) {
+    console.error("Error reading file:", error);
+    return NextResponse.json({ error: "Failed to read data" }, { status: 500 });
+  }
+}
