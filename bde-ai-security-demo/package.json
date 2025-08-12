@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",
-    "@react-three/fiber": "^9.1.2",
+    "@react-three/fiber": "^9.2.0",
     "axios": "^1.8.2",
     "chart.js": "^4.5.0",
     "express-rate-limit": "^7.5.0",
