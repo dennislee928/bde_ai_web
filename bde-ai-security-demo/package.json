@@ -17,7 +17,7 @@
 
     "next": "15.2.4",
     "rate-limiter-flexible": "^5.0.5",
-    "react": "^19.1.0",
+    "react": "^19.1.1",
     "react-dom": "^19.0.0",
     "tailwind-merge": "^3.3.1"
 
