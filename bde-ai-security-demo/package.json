@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@radix-ui/react-slot": "^1.2.3",
+    "@radix-ui/react-slot": "^1.2.4",
     "@react-three/fiber": "^9.3.0",
     "axios": "^1.13.5",
     "chart.js": "^4.5.0",
